@@ -1,0 +1,28 @@
+{
+  "name": "react-ifsc-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "webpack": "^3.1.0",
+    "webpack-dev-server": "^2.5.1",
+    "css-loader": "^0.28.10",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.2"
+  }
+}
