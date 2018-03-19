@@ -7,18 +7,22 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
-        }, {
-            test: /\.s?css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
-        }]
+        rules: [
+            {
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            }, {
+                test: /\.s?css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
+            { test: /\.(png|jpg)$/, loader: 'file-loader' },
+            { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, loader: 'file-loader' }
+        ]
     },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
