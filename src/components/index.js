@@ -1,7 +1,11 @@
 import AppHeader from './app-header';
-import BanksList from './banks-list';
+import Banks from './banks';
+import States from './states';
+import Cities from './cities';
 
 export {
     AppHeader,
-    BanksList
+    Banks,
+    States,
+    Cities
 }
