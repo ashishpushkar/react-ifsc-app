@@ -38,7 +38,6 @@ class Bank extends Component {
     }
 
     cityChange(e, data) {
-        //console.log('props ---', this.props);
     }
 
     componentDidMount() {
@@ -46,7 +45,6 @@ class Bank extends Component {
     }
 
     render() {
-        { console.log(this.props) }
         return (
             <div>
                 <AppHeader />
