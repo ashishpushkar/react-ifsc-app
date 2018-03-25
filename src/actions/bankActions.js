@@ -1,24 +1,20 @@
+import axios from 'axios';
 import {
     GET_BANKS, GET_STATES,
     UPDATE_BANK_NAME, GET_CITIES,
     UPDATE_STATE_NAME, UPDATE_CITY_NAME
 } from '../constants';
 
-export function getBanks() {
-    return {
-        type: GET_BANKS,
-        payload: [
-            {
-                key: 'Axis Bank',
-                text: 'Axis Bank',
-                value: 'Axis Bank'
-            },
-            {
-                key: 'SBI Bank',
-                text: 'SBI Bank',
-                value: 'SBI Bank'
-            }
-        ]
+
+export function getBanks(dispatch) {
+    return function (dispatch) {
+        axios.get('http://localhost:4000/banks')
+            .then((response) => {
+                dispatch({ 'type': GET_BANKS, 'payload': response.data.banks });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 }
 
