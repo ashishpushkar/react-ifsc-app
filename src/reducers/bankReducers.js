@@ -1,23 +1,35 @@
-import { GET_BANKS, GET_STATES, UPDATE_BANK_NAME, GET_CITIES } from '../constants';
+import {
+    GET_BANKS, GET_STATES,
+    UPDATE_BANK_NAME, GET_CITIES,
+    UPDATE_STATE_NAME, UPDATE_CITY_NAME
+} from '../constants';
 
 export function bankReducers(state = {
     banksList: [], statesList: [],
-    bankName: '', citiesList: []
+    selectedBankName: '', citiesList: [],
+    selectedName: '', selectedCityName: ''
 }, action) {
 
     switch (action.type) {
 
         case GET_BANKS:
             return {
-                banksList: action.payload
+                banksList: action.payload,
+                statesList: state.statesList,
+                selectedBankName: state.selectedBankName,
+                citiesList: state.citiesList,
+                selectedName: state.selectedName,
+                selectedCityName: state.selectedCityName
             }
             break;
 
         case GET_STATES:
             return {
-                bankName: state.bankName,
+                selectedBankName: state.selectedBankName,
                 banksList: state.banksList,
-                statesList: action.payload
+                statesList: action.payload,
+                selectedName: state.selectedName,
+                selectedCityName: state.selectedCityName,
             }
             break;
 
@@ -25,7 +37,9 @@ export function bankReducers(state = {
             return {
                 banksList: state.banksList,
                 statesList: state.statesList,
-                bankName: action.payload
+                selectedBankName: action.payload,
+                selectedName: state.selectedName,
+                selectedCityName: state.selectedCityName,
             }
             break;
 
@@ -33,8 +47,32 @@ export function bankReducers(state = {
             return {
                 banksList: state.banksList,
                 statesList: state.statesList,
-                bankName: state.bankName,
-                citiesList: action.payload
+                selectedBankName: state.selectedBankName,
+                citiesList: action.payload,
+                selectedCityName: state.selectedCityName,
+                selectedName: state.selectedName
+            }
+            break;
+
+        case UPDATE_STATE_NAME:
+            return {
+                banksList: state.banksList,
+                statesList: state.statesList,
+                selectedBankName: state.selectedBankName,
+                citiesList: state.citiesList,
+                selectedName: action.payload,
+                selectedCityName: state.selectedCityName
+            }
+            break;
+
+        case UPDATE_CITY_NAME:
+            return {
+                banksList: state.banksList,
+                statesList: state.statesList,
+                selectedBankName: state.selectedBankName,
+                citiesList: state.citiesList,
+                selectedName: state.selectedName,
+                selectedCityName: action.payload
             }
             break;
     }

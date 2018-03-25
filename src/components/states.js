@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Image, Dropdown } from 'semantic-ui-react';
+import { Grid, Dropdown } from 'semantic-ui-react';
 
 const States = ({ states, onStateChange }) => (
     <Grid centered>

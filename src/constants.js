@@ -2,3 +2,5 @@ export const GET_BANKS = 'GET_BANKS';
 export const GET_STATES = 'GET_STATES';
 export const UPDATE_BANK_NAME = 'UPDATE_BANK_NAME';
 export const GET_CITIES = 'GET_CITIES';
+export const UPDATE_STATE_NAME = 'UPDATE_STATE_NAME';
+export const UPDATE_CITY_NAME = 'UPDATE_CITY_NAME';

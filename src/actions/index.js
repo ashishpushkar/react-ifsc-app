@@ -1,8 +1,14 @@
-import { getBanks, getStates, updateBankName, getCities } from './bankActions';
+import {
+    getBanks, getStates,
+    updateBankName, getCities,
+    updateStateName, updateCityName
+} from './bankActions';
 
 export {
     getBanks,
     getStates,
     updateBankName,
-    getCities
+    getCities,
+    updateStateName,
+    updateCityName
 }

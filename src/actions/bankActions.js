@@ -1,4 +1,8 @@
-import { GET_BANKS, GET_STATES, UPDATE_BANK_NAME, GET_CITIES } from '../constants';
+import {
+    GET_BANKS, GET_STATES,
+    UPDATE_BANK_NAME, GET_CITIES,
+    UPDATE_STATE_NAME, UPDATE_CITY_NAME
+} from '../constants';
 
 export function getBanks() {
     return {
@@ -53,5 +57,19 @@ export function getCities(bankName, state) {
                 value: 'Pune'
             }
         ]
+    }
+}
+
+export function updateStateName(stateName) {
+    return {
+        type: UPDATE_STATE_NAME,
+        payload: stateName
+    }
+}
+
+export function updateCityName(cityName) {
+    return {
+        type: UPDATE_CITY_NAME,
+        payload: cityName
     }
 }
