@@ -19,20 +19,15 @@ export function getBanks(dispatch) {
 }
 
 export function getStates(bankName) {
-    return {
-        type: GET_STATES,
-        payload: [
-            {
-                key: 'Maharashtra',
-                text: 'Maharashtra',
-                value: 'Maharashtra'
-            },
-            {
-                key: 'Goa',
-                text: 'Goa',
-                value: 'Goa'
-            }
-        ]
+
+    return function (dispatch) {
+        axios.post('http://localhost:4000/states', { bankName: bankName })
+            .then((response) => {
+                dispatch({ 'type': GET_STATES, 'payload': response.data.states });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 }
 
@@ -43,17 +38,18 @@ export function updateBankName(bankName) {
     }
 }
 
-export function getCities(bankName, state) {
-    return {
-        type: GET_CITIES,
-        payload: [
-            {
-                key: 'Pune',
-                text: 'Pune',
-                value: 'Pune'
-            }
-        ]
+export function getCities(bankName, sname) {
+
+    return function (dispatch) {
+        axios.post('http://localhost:4000/cities', { bankName: bankName, stateName: sname })
+            .then((response) => {
+                dispatch({ 'type': GET_CITIES, 'payload': response.data.cities });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
+
 }
 
 export function updateStateName(stateName) {

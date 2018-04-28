@@ -30,6 +30,7 @@ export function bankReducers(state = {
                 statesList: action.payload,
                 selectedName: state.selectedName,
                 selectedCityName: state.selectedCityName,
+                citiesList: state.citiesList,
             }
             break;
 
@@ -40,6 +41,7 @@ export function bankReducers(state = {
                 selectedBankName: action.payload,
                 selectedName: state.selectedName,
                 selectedCityName: state.selectedCityName,
+                citiesList: state.citiesList,
             }
             break;
 
