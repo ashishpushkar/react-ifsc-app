@@ -2,9 +2,9 @@ import axios from 'axios';
 import {
     GET_BANKS, GET_STATES,
     UPDATE_BANK_NAME, GET_CITIES,
-    UPDATE_STATE_NAME, UPDATE_CITY_NAME
+    UPDATE_STATE_NAME, UPDATE_CITY_NAME,
+    GET_BANK_DETAILS
 } from '../constants';
-
 
 export function getBanks(dispatch) {
     return function (dispatch) {
@@ -31,13 +31,6 @@ export function getStates(bankName) {
     }
 }
 
-export function updateBankName(bankName) {
-    return {
-        type: UPDATE_BANK_NAME,
-        payload: bankName
-    }
-}
-
 export function getCities(bankName, sname) {
 
     return function (dispatch) {
@@ -50,6 +43,20 @@ export function getCities(bankName, sname) {
             });
     }
 
+}
+
+export function getBankDetails(bankName, sname, cityName) {
+    return {
+        type: GET_BANK_DETAILS,
+        payload: "test"
+    }
+}
+
+export function updateBankName(bankName) {
+    return {
+        type: UPDATE_BANK_NAME,
+        payload: bankName
+    }
 }
 
 export function updateStateName(stateName) {

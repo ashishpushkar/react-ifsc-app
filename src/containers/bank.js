@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { AppHeader, Banks, States, Cities } from '../components';
+import { AppHeader, Banks, States, Cities, GetDataBtn } from '../components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
     getBanks, getStates,
     updateBankName, getCities,
-    updateStateName, updateCityName
+    updateStateName, updateCityName,
+    getBankDetails
 } from '../actions';
 import { Grid } from 'semantic-ui-react';
 
@@ -46,12 +47,20 @@ class Bank extends Component {
         this.props.updateCityName(data.value);
     }
 
+    getData() {
+        console.log('get button data called ---', this.props);
+        this.props.getBankDetails(
+            this.props.bankName,
+            this.props.selectedName,
+            this.props.selectedCityName
+        );
+    }
+
     componentDidMount() {
         this.props.getBanks();
     }
 
     render() {
-        { console.log(this.props) }
         return (
             <div>
                 <AppHeader />
@@ -65,6 +74,9 @@ class Bank extends Component {
                     typeof this.props.cities != 'undefined' ?
                         this.props.cities : optSelectCities
                 } onCityChange={this.cityChange.bind(this)} />
+                <GetDataBtn
+                    getData={this.getData.bind(this)}
+                />
             </div>
         )
     }
@@ -77,7 +89,8 @@ function mapStateToProps(state) {
         bankName: state.banks.selectedBankName,
         cities: state.banks.citiesList,
         selectedName: state.banks.selectedName,
-        selectedCityName: state.banks.selectedCityName
+        selectedCityName: state.banks.selectedCityName,
+        data: state.banks.data
     }
 }
 
@@ -88,7 +101,8 @@ function mapDispatchToProps(dispatch) {
         updateBankName: updateBankName,
         getCities: getCities,
         updateStateName: updateStateName,
-        updateCityName: updateCityName
+        updateCityName: updateCityName,
+        getBankDetails: getBankDetails
     }, dispatch)
 }
 

@@ -1,7 +1,8 @@
 import {
     getBanks, getStates,
     updateBankName, getCities,
-    updateStateName, updateCityName
+    updateStateName, updateCityName,
+    getBankDetails
 } from './bankActions';
 
 export {
@@ -10,5 +11,6 @@ export {
     updateBankName,
     getCities,
     updateStateName,
-    updateCityName
+    updateCityName,
+    getBankDetails
 }

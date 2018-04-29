@@ -1,13 +1,15 @@
 import {
     GET_BANKS, GET_STATES,
     UPDATE_BANK_NAME, GET_CITIES,
-    UPDATE_STATE_NAME, UPDATE_CITY_NAME
+    UPDATE_STATE_NAME, UPDATE_CITY_NAME,
+    GET_BANK_DETAILS
 } from '../constants';
 
 export function bankReducers(state = {
     banksList: [], statesList: [],
     selectedBankName: '', citiesList: [],
-    selectedName: '', selectedCityName: ''
+    selectedName: '', selectedCityName: '',
+    data: []
 }, action) {
 
     switch (action.type) {
@@ -19,7 +21,8 @@ export function bankReducers(state = {
                 selectedBankName: state.selectedBankName,
                 citiesList: state.citiesList,
                 selectedName: state.selectedName,
-                selectedCityName: state.selectedCityName
+                selectedCityName: state.selectedCityName,
+                data: state.data
             }
             break;
 
@@ -31,6 +34,19 @@ export function bankReducers(state = {
                 selectedName: state.selectedName,
                 selectedCityName: state.selectedCityName,
                 citiesList: state.citiesList,
+                data: state.data
+            }
+            break;
+
+        case GET_CITIES:
+            return {
+                banksList: state.banksList,
+                statesList: state.statesList,
+                selectedBankName: state.selectedBankName,
+                citiesList: action.payload,
+                selectedCityName: state.selectedCityName,
+                selectedName: state.selectedName,
+                data: state.data
             }
             break;
 
@@ -42,17 +58,7 @@ export function bankReducers(state = {
                 selectedName: state.selectedName,
                 selectedCityName: state.selectedCityName,
                 citiesList: state.citiesList,
-            }
-            break;
-
-        case GET_CITIES:
-            return {
-                banksList: state.banksList,
-                statesList: state.statesList,
-                selectedBankName: state.selectedBankName,
-                citiesList: action.payload,
-                selectedCityName: state.selectedCityName,
-                selectedName: state.selectedName
+                data: state.data
             }
             break;
 
@@ -63,7 +69,8 @@ export function bankReducers(state = {
                 selectedBankName: state.selectedBankName,
                 citiesList: state.citiesList,
                 selectedName: action.payload,
-                selectedCityName: state.selectedCityName
+                selectedCityName: state.selectedCityName,
+                data: state.data
             }
             break;
 
@@ -74,7 +81,20 @@ export function bankReducers(state = {
                 selectedBankName: state.selectedBankName,
                 citiesList: state.citiesList,
                 selectedName: state.selectedName,
-                selectedCityName: action.payload
+                selectedCityName: action.payload,
+                data: state.data
+            }
+            break;
+
+        case GET_BANK_DETAILS:
+            return {
+                banksList: state.banksList,
+                statesList: state.statesList,
+                selectedBankName: state.selectedBankName,
+                citiesList: state.citiesList,
+                selectedName: state.selectedName,
+                selectedCityName: action.payload,
+                data: action.payload
             }
             break;
     }
