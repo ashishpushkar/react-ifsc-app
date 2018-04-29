@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppHeader, Banks, States, Cities, GetDataBtn } from '../components';
+import { AppHeader, Banks, States, Cities, GetDataBtn, BankData } from '../components';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -48,7 +48,6 @@ class Bank extends Component {
     }
 
     getData() {
-        console.log('get button data called ---', this.props);
         this.props.getBankDetails(
             this.props.bankName,
             this.props.selectedName,
@@ -74,9 +73,11 @@ class Bank extends Component {
                     typeof this.props.cities != 'undefined' ?
                         this.props.cities : optSelectCities
                 } onCityChange={this.cityChange.bind(this)} />
-                <GetDataBtn
+                {this.props.bankName && this.props.selectedName && this.props.selectedCityName ? <GetDataBtn
                     getData={this.getData.bind(this)}
-                />
+                /> : null
+                }
+                {this.props.data.length > 0 ? <BankData data={this.props.data} /> : null}
             </div>
         )
     }

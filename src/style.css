@@ -1,0 +1,6 @@
+.ReactTable .-pagination .-btn {
+    height: auto !important;
+}
+.ReactTable .rt-td {
+    white-space: pre-wrap;
+}

@@ -46,6 +46,17 @@ export function getCities(bankName, sname) {
 }
 
 export function getBankDetails(bankName, sname, cityName) {
+
+    return function (dispatch) {
+        axios.post('http://localhost:4000/banks', { bankName: bankName, stateName: sname, cityName: cityName })
+            .then((response) => {
+                dispatch({ 'type': GET_BANK_DETAILS, 'payload': response.data.response });
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     return {
         type: GET_BANK_DETAILS,
         payload: "test"

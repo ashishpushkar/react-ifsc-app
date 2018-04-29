@@ -93,7 +93,7 @@ export function bankReducers(state = {
                 selectedBankName: state.selectedBankName,
                 citiesList: state.citiesList,
                 selectedName: state.selectedName,
-                selectedCityName: action.payload,
+                selectedCityName: state.selectedCityName,
                 data: action.payload
             }
             break;
